@@ -19,7 +19,12 @@ If you find the project structure to be extensive relative to its size, rest ass
 
 ## Installation
 
-clone the link of repo from my github account and just open it in android studio .
+To set up the project, follow these steps:
+
+1. open Android Studio
+2. Clone the repository:
+   ```bash
+   git clone https://github.com/ahmedkenawy/Football-League.git
 
 ## Usage
 
