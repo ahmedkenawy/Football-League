@@ -17,19 +17,16 @@ class MainActivity : BaseActivity<Any>() {
     }
 
     override fun onCreateActivity(savedInstanceState: Bundle?) {
+        setUpViews()
+    }
+
+    override fun setUpViews() {
         installSplashScreen()
         // prevent user from taking a screen shot or record the screen
         window.setFlags(
             WindowManager.LayoutParams.FLAG_SECURE,
             WindowManager.LayoutParams.FLAG_SECURE
         )
-
-
-        setUpViews()
-    }
-
-    override fun setUpViews() {
-
     }
 
 

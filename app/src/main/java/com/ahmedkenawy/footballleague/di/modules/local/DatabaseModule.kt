@@ -1,4 +1,4 @@
-package com.ahmedkenawy.footballleague.di.modules
+package com.ahmedkenawy.footballleague.di.modules.local
 
 import android.content.Context
 import androidx.room.Room

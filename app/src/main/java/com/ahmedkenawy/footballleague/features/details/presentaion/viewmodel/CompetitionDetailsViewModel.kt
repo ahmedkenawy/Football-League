@@ -1,8 +1,9 @@
-package com.ahmedkenawy.footballleague.features.details.presentaion
+package com.ahmedkenawy.footballleague.features.details.presentaion.viewmodel
 
 import androidx.lifecycle.SavedStateHandle
 import com.ahmedkenawy.footballleague.core.base.BaseCoroutineDispatchers
 import com.ahmedkenawy.footballleague.core.base.BaseViewModel
+import com.ahmedkenawy.footballleague.features.details.presentaion.event.CompetitionDetailsEvent
 import com.ahmedkenawy.footballleague.features.list.domain.Competitions
 import com.ahmedkenawy.footballleague.utils.Constants.Intent.COMPETITION_NAME
 import com.ahmedkenawy.footballleague.utils.databinding.ObservableString

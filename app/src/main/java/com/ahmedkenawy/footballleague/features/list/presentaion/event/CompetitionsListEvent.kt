@@ -1,4 +1,4 @@
-package com.ahmedkenawy.footballleague.features.list.presentaion
+package com.ahmedkenawy.footballleague.features.list.presentaion.event
 
 import com.ahmedkenawy.footballleague.features.list.domain.Competitions
 

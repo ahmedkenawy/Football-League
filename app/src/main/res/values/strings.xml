@@ -17,7 +17,4 @@
     <string name="network_retry">Retry</string>
     <string name="network_no_internet_connection">No internet connection</string>
     <string name="no_results_found">No results found</string>
-    <string name="you_must_be_logged_in">You Must Be Logged In</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

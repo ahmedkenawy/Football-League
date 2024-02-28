@@ -70,6 +70,7 @@ class CompetitionsAdapter(
                 ivCompetitionEmblem.load(it.competitionEmblem) {
                     placeholder(R.drawable.image_placeholder)
                     transformations(CircleCropTransformation())
+                    error(R.drawable.error_place_holder)
                     crossfade(true)
                 }
                 // Set competition name

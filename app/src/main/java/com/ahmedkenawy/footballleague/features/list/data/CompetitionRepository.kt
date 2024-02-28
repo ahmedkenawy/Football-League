@@ -14,6 +14,7 @@ import javax.inject.Inject
  * @param competitionsDatabase The local database instance for accessing competitions data stored locally.
  * @param competitionsMapper The mapper class responsible for mapping competitions data between different formats.
  */
+
 open class CompetitionRepository @Inject constructor(
     private val api: CompetitionsApi,
     private val competitionsDatabase: CompetitionsDatabase,

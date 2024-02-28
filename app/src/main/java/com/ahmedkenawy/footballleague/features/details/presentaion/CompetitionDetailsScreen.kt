@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import com.ahmedkenawy.footballleague.core.base.BaseFragment
-import com.ahmedkenawy.footballleague.core.base.BaseViewModel
 import com.ahmedkenawy.footballleague.databinding.FragmentCompetitionDetailsScreenBinding
+import com.ahmedkenawy.footballleague.features.details.presentaion.event.CompetitionDetailsEvent
+import com.ahmedkenawy.footballleague.features.details.presentaion.viewmodel.CompetitionDetailsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 

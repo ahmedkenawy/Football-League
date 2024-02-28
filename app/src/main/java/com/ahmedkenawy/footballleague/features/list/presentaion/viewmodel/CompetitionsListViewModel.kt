@@ -1,4 +1,4 @@
-package com.ahmedkenawy.footballleague.features.list.presentaion
+package com.ahmedkenawy.footballleague.features.list.presentaion.viewmodel
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.ahmedkenawy.footballleague.core.base.BaseCoroutineDispatchers
 import com.ahmedkenawy.footballleague.core.base.BaseViewModel
 import com.ahmedkenawy.footballleague.features.list.data.CompetitionRepository
+import com.ahmedkenawy.footballleague.features.list.presentaion.event.CompetitionsListEvent
 import com.ahmedkenawy.footballleague.network.process
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork
 import dagger.hilt.android.lifecycle.HiltViewModel

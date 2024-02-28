@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.ahmedkenawy.footballleague.features.details.presentaion.CompetitionDetailsViewModel" />
+            type="com.ahmedkenawy.footballleague.features.details.presentaion.viewmodel.CompetitionDetailsViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

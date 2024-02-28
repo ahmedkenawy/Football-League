@@ -1,21 +1,17 @@
 package com.ahmedkenawy.footballleague.features.list.presentaion
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.viewbinding.ViewBinding
-import com.ahmedkenawy.footballleague.R
 import com.ahmedkenawy.footballleague.core.base.BaseFragment
-import com.ahmedkenawy.footballleague.core.base.BaseViewModel
 import com.ahmedkenawy.footballleague.databinding.FragmentCompetitionsListScreenBinding
 import com.ahmedkenawy.footballleague.features.list.domain.Competitions
 import com.ahmedkenawy.footballleague.features.list.presentaion.adapter.CompetitionsAdapter
+import com.ahmedkenawy.footballleague.features.list.presentaion.event.CompetitionsListEvent
+import com.ahmedkenawy.footballleague.features.list.presentaion.viewmodel.CompetitionsListViewModel
 import com.ahmedkenawy.footballleague.utils.extentions.navigate
 import dagger.hilt.android.AndroidEntryPoint
+
 /**
  * Fragment class responsible for displaying the list of competitions in the UI.
  */
@@ -77,7 +73,7 @@ class CompetitionsListScreen : BaseFragment<CompetitionsListEvent>() {
      *
      * @param competitions The list of competitions to be displayed.
      */
-    private fun displayCompetitions(competitions: List<Competitions?>) {
+    fun displayCompetitions(competitions: List<Competitions?>) {
         competitionsAdapter = CompetitionsAdapter { position, competition ->
             // Navigate to competition details screen when a competition item is clicked
             navigate(

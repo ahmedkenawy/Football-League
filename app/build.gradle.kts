@@ -66,6 +66,20 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+    // Required for unit testing
+    testImplementation("org.mockito:mockito-core:3.11.2")
+    testImplementation("org.mockito:mockito-inline:3.11.2")
+    testImplementation("org.mockito:mockito-kotlin:4.3.1")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
+    testImplementation("androidx.test:core-ktx:1.4.0")
+    testImplementation("com.google.dagger:hilt-android-testing:2.44")
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.44")
+    testImplementation("androidx.arch.core:core-testing:2.1.0")
+    testImplementation("androidx.lifecycle:lifecycle-common-java8:2.3.1")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.9.1")
+    testImplementation("com.squareup.retrofit2:retrofit-mock:2.9.0")
+    androidTestImplementation("androidx.test:runner:1.4.0")
+
 
     // SplashScreen compat library
     implementation("androidx.core:core-splashscreen:1.0.1")
@@ -118,12 +132,10 @@ dependencies {
     // room
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
-    implementation ("androidx.room:room-ktx:2.6.1")
+    implementation("androidx.room:room-ktx:2.6.1")
 
 
-    implementation ("com.github.pwittchen:reactivenetwork-rx2:3.0.2")
-
-
+    implementation("com.github.pwittchen:reactivenetwork-rx2:3.0.2")
 
 
 }

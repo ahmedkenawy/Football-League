@@ -1,4 +1,4 @@
-package com.ahmedkenawy.footballleague.di.modules
+package com.ahmedkenawy.footballleague.di.modules.remote
 
 import com.ahmedkenawy.footballleague.features.list.data.remote.CompetitionsApi
 import com.ahmedkenawy.footballleague.network.NetworkHeaderInterceptor

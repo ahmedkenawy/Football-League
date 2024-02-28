@@ -18,6 +18,7 @@ fun setCompetitionImage(imageView: ImageView, name: String?) {
     imageView.load(name) {
         placeholder(R.drawable.image_placeholder) // Placeholder image while loading
         transformations(CircleCropTransformation()) // Apply circle crop transformation
+        error(R.drawable.image_placeholder )  // error place holder image
         crossfade(true) // Enable crossfade animation
     }
 }
