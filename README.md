@@ -12,7 +12,6 @@ If you find the project structure to be extensive relative to its size, rest ass
 ## Table of Contents
 
 - [Installation](#installation)
-- [Usage](#usage)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 
