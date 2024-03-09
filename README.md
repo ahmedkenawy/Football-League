@@ -25,7 +25,6 @@ To set up the project, follow these steps:
    ```bash
    git clone https://github.com/ahmedkenawy/Football-League.git
 
-
 ## Features
 
 - list of competitions
