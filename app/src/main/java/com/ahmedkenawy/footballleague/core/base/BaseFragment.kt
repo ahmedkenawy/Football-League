@@ -28,7 +28,7 @@ abstract class BaseFragment<E> : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        loadInitialData()
+        mViewModel?.initOnce()
         return mBinding.root
     }
 
@@ -49,10 +49,6 @@ abstract class BaseFragment<E> : Fragment() {
         }
     }
 
-
-    private fun loadInitialData() {
-        mViewModel?.loadInitialData()
-    }
 
     fun back() {
         findNavController().navigateUp()

@@ -2,44 +2,28 @@ package com.ahmedkenawy.footballleague.network
 
 import android.content.Context
 import android.net.ConnectivityManager
-import com.ahmedkenawy.footballleague.MyApplication
+import android.net.NetworkCapabilities
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
 import javax.inject.Inject
 
-/**
- * Interceptor class responsible for checking network connection before making a network request.
- */
-class NetworkConnectionInterceptor @Inject constructor() : Interceptor {
+class NetworkConnectionInterceptor @Inject constructor(
+    @ApplicationContext private val context: Context
+) : Interceptor {
 
-    /**
-     * Checks if the device is connected to the internet.
-     *
-     * @return true if the device is connected, false otherwise.
-     */
     private val isConnected: Boolean
         get() {
-            val connectivityManager =
-                MyApplication.instance.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            val netInfo = connectivityManager.activeNetworkInfo
-            return netInfo != null && netInfo.isConnected
+            val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+            val network = cm.activeNetwork ?: return false
+            val capabilities = cm.getNetworkCapabilities(network) ?: return false
+            return capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
         }
 
-    /**
-     * Intercepts the network request and checks for network connection.
-     *
-     * @param chain The interceptor chain.
-     * @return The response of the network request.
-     * @throws NoConnectionException If there is no network connection.
-     */
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
-        // Check if device is connected to the internet
         if (!isConnected) throw NoConnectionException()
-
-        // Proceed with the network request if device is connected
-        val builder = chain.request().newBuilder()
-        return chain.proceed(builder.build())
+        return chain.proceed(chain.request().newBuilder().build())
     }
 }

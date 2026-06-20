@@ -7,7 +7,6 @@ import com.ahmedkenawy.footballleague.core.event.MutableEventQueue
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-
 abstract class BaseViewModel<E>(
     private val dispatchers: BaseCoroutineDispatchers = BaseCoroutineDispatchers()
 ) : ViewModel() {
@@ -15,7 +14,16 @@ abstract class BaseViewModel<E>(
     private val _eventQueue = MutableEventQueue<E>(dispatchers)
     val eventQueue: EventQueue<E> = _eventQueue
 
+    private var hasInitialized = false
+
     open fun loadInitialData() {}
+
+    fun initOnce() {
+        if (!hasInitialized) {
+            hasInitialized = true
+            loadInitialData()
+        }
+    }
 
     fun push(state: E) {
         viewModelScope.launch { _eventQueue.push(state) }
@@ -32,5 +40,4 @@ abstract class BaseViewModel<E>(
     suspend fun CoroutineScope.pushSingle(state: E) {
         _eventQueue.pushSingle(state)
     }
-
 }

@@ -77,7 +77,7 @@ suspend inline fun <T : Any> State<T>.process(
     when (this@process) {
         is State.Success -> onSuccess.invoke(data)
         is State.Failure -> {
-            if (onError == null && throwable.message?.contains("Job was cancelled") == false)
+            if (throwable.message?.contains("Job was cancelled") == false)
                 onError?.invoke(throwable.message)
         }
     }

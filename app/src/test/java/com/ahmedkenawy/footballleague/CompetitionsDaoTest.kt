@@ -2,9 +2,9 @@ package com.ahmedkenawy.footballleague
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
+import com.ahmedkenawy.footballleague.features.list.data.local.CompetitionEntity
 import com.ahmedkenawy.footballleague.features.list.data.local.CompetitionsDao
 import com.ahmedkenawy.footballleague.features.list.data.local.CompetitionsDatabase
-import com.ahmedkenawy.footballleague.features.list.domain.Competitions
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Assert.assertEquals
@@ -32,18 +32,13 @@ class CompetitionsDaoTest {
 
     @Test
     fun `test insert and retrieve competitions`() = runBlocking {
-        // Create a test competition
-        val competition =
-            Competitions(id = 0, areaName = "", competitionName = "", competitionEmblem = "")
+        val entity = CompetitionEntity(id = 1, areaName = "", competitionName = "", competitionEmblem = "")
 
-        // Insert the competition into the database
-        dao.insertCompetitions(listOf(competition))
+        dao.insertCompetitions(listOf(entity))
 
-        // Retrieve all competitions from the database
-        val competitionsFromDb = dao.getAllItems()
+        val result = dao.getAllItems()
 
-        // Verify that the retrieved competitions contain the inserted competition
-        assertEquals(1, competitionsFromDb.size)
-        assertEquals(competition, competitionsFromDb.first())
+        assertEquals(1, result.size)
+        assertEquals(entity, result.first())
     }
 }
