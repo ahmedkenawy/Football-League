@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -7,6 +9,15 @@ plugins {
     id("com.google.dagger.hilt.android")
     id("androidx.navigation.safeargs.kotlin")
 }
+
+val localProperties = Properties().apply {
+    val file = rootProject.file("local.properties")
+    if (file.exists()) load(file.inputStream())
+}
+val apiKey = localProperties.getProperty("API_KEY") ?: System.getenv("API_KEY") ?: ""
+val baseUrl = localProperties.getProperty("BASE_URL")
+    ?: System.getenv("BASE_URL")
+    ?: "https://api.football-data.org/v4/"
 
 android {
     namespace = "com.ahmedkenawy.footballleague"
@@ -29,22 +40,19 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            buildConfigField("String", "API_KEY", "\"ab46221ac9c24c60a993ed7128eecac6\"")
-            buildConfigField("String", "BASE_URL", "\"https://api.football-data.org/v4/\"")
+            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+            buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
         }
         debug {
-            buildConfigField("String", "API_KEY", "\"ab46221ac9c24c60a993ed7128eecac6\"")
-            buildConfigField("String", "BASE_URL", "\"https://api.football-data.org/v4/\"")
+            buildConfigField("String", "API_KEY", "\"$apiKey\"")
+            buildConfigField("String", "BASE_URL", "\"$baseUrl\"")
         }
-
     }
-
 
     buildFeatures {
         viewBinding = true
         dataBinding = true
         buildConfig = true
-
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -61,12 +69,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation("com.google.android.material:material:1.11.0-beta01")
     implementation("androidx.fragment:fragment-ktx:1.7.0-alpha06")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    // Required for unit testing
     testImplementation("org.mockito:mockito-core:3.11.2")
     testImplementation("org.mockito:mockito-inline:3.11.2")
     testImplementation("org.mockito:mockito-kotlin:4.3.1")
@@ -80,10 +86,8 @@ dependencies {
     testImplementation("com.squareup.retrofit2:retrofit-mock:2.9.0")
     androidTestImplementation("androidx.test:runner:1.4.0")
 
-
     // SplashScreen compat library
     implementation("androidx.core:core-splashscreen:1.0.1")
-
 
     // Hilt
     implementation("com.google.dagger:hilt-android:2.44")
@@ -96,16 +100,13 @@ dependencies {
 
     // Navigation Components
     implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation("android.arch.navigation:navigation-fragment-ktx:1.0.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
 
     // ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     // LiveData
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-    // Saved state module for ViewModel
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.6.2")
-    // ViewModels delegation extensions for activity (by activityViewModels())
     implementation("androidx.activity:activity-ktx:1.8.1")
 
     // Network
@@ -114,28 +115,22 @@ dependencies {
     implementation("com.squareup.retrofit2:converter-scalars:2.9.0")
     api("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10")
 
-
-    //Glide
+    // Coil
     api("io.coil-kt:coil:2.6.0")
 
-
-    //paging
+    // Paging
     api("androidx.paging:paging-runtime-ktx:3.2.1")
     testImplementation("androidx.paging:paging-common-ktx:3.2.1")
-    //ssp //sdp
+
+    // SDP / SSP
     implementation("com.intuit.sdp:sdp-android:1.1.0")
     implementation("com.intuit.ssp:ssp-android:1.1.0")
 
-    // SplashScreen compat library
-    implementation("androidx.core:core-splashscreen:1.0.1")
-
-    // room
+    // Room
     implementation("androidx.room:room-runtime:2.6.1")
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
 
-
+    // Reactive Network
     implementation("com.github.pwittchen:reactivenetwork-rx2:3.0.2")
-
-
 }

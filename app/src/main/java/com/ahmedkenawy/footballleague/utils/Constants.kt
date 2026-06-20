@@ -5,8 +5,8 @@ import com.ahmedkenawy.footballleague.BuildConfig
 class Constants {
 
     object Configuration {
-        const val FLOW_REPLAY_CACHE = 999
-        const val FLOW_BUFFER_CAPACITY = 99
+        const val FLOW_REPLAY_CACHE = 1
+        const val FLOW_BUFFER_CAPACITY = 64
     }
 
     object Network {
